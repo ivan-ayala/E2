@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>Tweets de {{ zombie.name }}</title>
+</head>
+<body>
+	<a href="{% url home %}">Home</a>
+	<h1>{{ zombie.name }} ({{ zombie.tweets.count }} tweets)</h1>
+	<p>{% for tweet in zombie.tweets.all %}
+		<div> {{ tweet.id }}: {{ tweet.status }} ({{ tweet.created_at }})</div>
+		{% endfor %}
+	</p>
+</body>
+
+</html>

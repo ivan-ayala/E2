@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Twitter </title>
+</head>
+<body>
+	<div>
+		The best application to Zombies in the world   ;) - Home
+	</div>
+	<hr/>
+	{% for zombie in zombies %}
+	<div>
+		<h2> Zombie: {{ zombie.name }} - {{ zombie.tweets.count }} tweet (s)</h3>
+		<h3> Cemetery: {{ zombie.cemetery }}</h2>
+		<a href="{% url show_zombie zombie.id %}">ver tweets</a>
+		<h4>Tweets</h4>
+		<div class='tweets'>
+			{% for tweet in zombie.tweets.all %}
+			<div> {{ tweet.status }}</div>
+			{% endfor %}
+		</div>
+	</div>
+	{% endfor %}
+</body>
+
+</html>
